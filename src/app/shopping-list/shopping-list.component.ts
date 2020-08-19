@@ -11,8 +11,8 @@ export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[];
 
   constructor(private shoppingListService: ShoppingListService) {
-    this.shoppingListService.addIngredient.subscribe((ingredient: Ingredient) =>
-      this.ingredients.push(ingredient)
+    this.shoppingListService.addIngredient.subscribe(
+      () => (this.ingredients = this.shoppingListService.getShoppingList())
     );
   }
 

@@ -22,7 +22,16 @@
         Mange Recipe <span class="caret"></span>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">To Shopping List</a>
+        <a
+          class="dropdown-item"
+          (click)="onAddToShoppingList()"
+          style="
+             {
+              cursor: pointer;
+            }
+          "
+          >To Shopping List</a
+        >
         <a class="dropdown-item" href="#">Edit Recipe</a>
         <a class="dropdown-item" href="#">Delete Recipe</a>
       </div>
@@ -36,6 +45,11 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    Ingredients
+    <h5>Ingredients</h5>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let ingredient of recipeDetail.ingredients">
+        {{ ingredient.name }} ({{ ingredient.amount }})
+      </li>
+    </ul>
   </div>
 </div>
